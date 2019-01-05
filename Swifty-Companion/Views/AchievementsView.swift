@@ -1,16 +1,24 @@
 //
-//  SkillsView.swift
+//  AchievementsView.swift
 //  Swifty-Companion
 //
-//  Created by Etienne Tranchier on 26/12/2018.
-//  Copyright © 2018 Etienne Tranchier. All rights reserved.
+//  Created by Etienne Tranchier on 04/01/2019.
+//  Copyright © 2019 Etienne Tranchier. All rights reserved.
 //
 
 import UIKit
 
-class SkillsView: UIView {
-    let skillCellId = "SkillCellId"
-    var skills : [Skills]? {
+class AchievementsView: UIView {
+
+    /*
+    // Only override draw() if you perform custom drawing.
+    // An empty implementation adversely affects performance during animation.
+    override func draw(_ rect: CGRect) {
+        // Drawing code
+    }
+    */
+    let achievementCellId = "ACellId"
+    var achievements : [Achievement]? {
         didSet {
             setupView()
             
@@ -23,13 +31,13 @@ class SkillsView: UIView {
         lb.translatesAutoresizingMaskIntoConstraints = false
         lb.textColor = UIColor.black
         lb.textAlignment = .left
-        lb.text = "Skills"
+        lb.text = "Achievements"
         return lb
     }()
     
     func setupView() {
         self.backgroundColor = UIColor(white: 1, alpha: 0.9)
-        tableView.register(SkillCell.self, forCellReuseIdentifier: skillCellId)
+        tableView.register(AchievementCell.self, forCellReuseIdentifier: achievementCellId)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.allowsSelection = false
@@ -48,17 +56,17 @@ class SkillsView: UIView {
             ])
         tableView.reloadData()
     }
-
+    
 }
 
-extension SkillsView : UITableViewDelegate, UITableViewDataSource {
+extension AchievementsView : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return skills != nil ? skills!.count : 0
+        return  achievements!.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: skillCellId) as! SkillCell
-        cell.skill = skills?[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: achievementCellId) as! AchievementCell
+        cell.a = achievements![indexPath.row]
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -66,3 +74,5 @@ extension SkillsView : UITableViewDelegate, UITableViewDataSource {
     }
     
 }
+
+

@@ -26,8 +26,8 @@ struct User : Codable {
     let correction_point : Int
     let image_url : String
     let cursus_users : [Cursus]?
-    // let project_users : [Project_user]?
-    // let achievements : [Achievements]?
+    let projects_users : [Project_user]?
+    let achievements : [Achievement]?
     // let titles : [Titles]?
     // let partnerships : [Partnerships]?
 }
@@ -47,21 +47,22 @@ struct Skills : Codable {
 }
 
 struct Project_user : Codable {
-    let id : Int
-    let final_mark : Int
+    let id : Int?
+    let final_mark : Int?
     let status : String
-    let project : [Project]?
+    let project : Project?
     let cursus_ids : [Int]?
 }
 
 struct Project : Codable {
-    let id : Int
+    let id : Int?
     let name : String
 }
 
-struct Achievements : Codable {
-    let id : Int
+struct Achievement : Codable {
+    let id : Int?
     let name : String
+    let nbr_of_success : Int?
 }
 
 struct Titles : Codable {

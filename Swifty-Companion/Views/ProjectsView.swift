@@ -1,16 +1,16 @@
 //
-//  SkillsView.swift
+//  ProjectsView.swift
 //  Swifty-Companion
 //
-//  Created by Etienne Tranchier on 26/12/2018.
-//  Copyright © 2018 Etienne Tranchier. All rights reserved.
+//  Created by Etienne Tranchier on 03/01/2019.
+//  Copyright © 2019 Etienne Tranchier. All rights reserved.
 //
 
 import UIKit
 
-class SkillsView: UIView {
-    let skillCellId = "SkillCellId"
-    var skills : [Skills]? {
+class ProjectsView: UIView {
+    let projectCellId = "ProjectCellId"
+    var projects : [Project_user]? {
         didSet {
             setupView()
             
@@ -23,13 +23,13 @@ class SkillsView: UIView {
         lb.translatesAutoresizingMaskIntoConstraints = false
         lb.textColor = UIColor.black
         lb.textAlignment = .left
-        lb.text = "Skills"
+        lb.text = "Projects"
         return lb
     }()
     
     func setupView() {
         self.backgroundColor = UIColor(white: 1, alpha: 0.9)
-        tableView.register(SkillCell.self, forCellReuseIdentifier: skillCellId)
+        tableView.register(ProjectCell.self, forCellReuseIdentifier: projectCellId)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.allowsSelection = false
@@ -48,17 +48,17 @@ class SkillsView: UIView {
             ])
         tableView.reloadData()
     }
-
+    
 }
 
-extension SkillsView : UITableViewDelegate, UITableViewDataSource {
+extension ProjectsView : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return skills != nil ? skills!.count : 0
+        return projects != nil ? projects!.count : 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: skillCellId) as! SkillCell
-        cell.skill = skills?[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: projectCellId) as! ProjectCell
+        cell.project = projects?[indexPath.row]
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

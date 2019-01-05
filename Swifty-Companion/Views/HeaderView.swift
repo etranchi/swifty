@@ -17,7 +17,6 @@ class HeaderView: UIView {
         // Drawing code
     }
     */
-    
     var user : User? {
         didSet {
             let url = URL(string: user!.image_url)
@@ -92,15 +91,28 @@ class HeaderView: UIView {
         return lb
     }()
     
+    let dissmisButton : UIButton = {
+        let bt = UIButton()
+        
+        let img = UIImage(named: "exit")!.withRenderingMode(.alwaysTemplate)
+        bt.tintColor = .white
+        bt.setImage(img, for: .normal)
+        bt.translatesAutoresizingMaskIntoConstraints = false
+        bt.addTarget(self, action: #selector(ProfilController.dissmisView), for: .touchUpInside)
+        return bt
+    }()
+    
+    
     func setupConstraint() {
-        let background = UIImage(named: "background42")
-        self.backgroundColor = UIColor(patternImage: background!)
+        // let background = UIImage(named: "background42")
+        self.backgroundColor = .clear
         addSubview(img)
         addSubview(level)
         addSubview(full_name)
         addSubview(login)
         addSubview(phone)
         addSubview(wallet)
+        addSubview(dissmisButton)
         addSubview(correction)
         addSubview(progress)
         login.text = user?.login
@@ -119,22 +131,25 @@ class HeaderView: UIView {
         correction.text = "Correction : " + String(user!.correction_point)
         full_name.text = "\(user!.displayname)"
         let padding : CGFloat = 30
-        let width : CGFloat = 150
-        print(user!.cursus_users![0].cursus_id)
-        print(user!.cursus_users![0].level)
+        let width : CGFloat = 120
         NSLayoutConstraint.activate([
+            dissmisButton.topAnchor.constraint(equalTo: topAnchor, constant: padding),
+            dissmisButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -padding),
+            dissmisButton.widthAnchor.constraint(equalToConstant: 40),
+            dissmisButton.heightAnchor.constraint(equalToConstant: 40),
+            
             img.topAnchor.constraint(equalTo: topAnchor, constant: padding),
             img.leftAnchor.constraint(equalTo: leftAnchor, constant: padding),
             img.widthAnchor.constraint(equalToConstant: width),
-            img.heightAnchor.constraint(equalToConstant: width),
+            img.heightAnchor.constraint(equalToConstant: width + 40),
             
             full_name.topAnchor.constraint(equalTo: img.bottomAnchor, constant: padding / 2),
             full_name.leftAnchor.constraint(equalTo: leftAnchor, constant: padding),
-            full_name.widthAnchor.constraint(equalToConstant: width),
+            full_name.widthAnchor.constraint(equalToConstant: width + 50),
             full_name.heightAnchor.constraint(equalToConstant: 20),
             
             login.topAnchor.constraint(equalTo: topAnchor, constant: padding),
-            login.rightAnchor.constraint(equalTo: rightAnchor, constant: -padding),
+            login.rightAnchor.constraint(equalTo: rightAnchor, constant: -(padding + 50)),
             login.widthAnchor.constraint(equalToConstant: width),
             login.heightAnchor.constraint(equalToConstant: 20),
             

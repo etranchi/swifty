@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		773FB6E421DE8DFB00D969F4 /* ProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773FB6E321DE8DFB00D969F4 /* ProjectsView.swift */; };
+		773FB6E721DE8E5C00D969F4 /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773FB6E621DE8E5C00D969F4 /* ProjectCell.swift */; };
+		77B792C521DFDA7B00B26CF6 /* AchievementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B792C421DFDA7B00B26CF6 /* AchievementsView.swift */; };
+		77B792C721DFDAC500B26CF6 /* AchievementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B792C621DFDAC500B26CF6 /* AchievementCell.swift */; };
 		8F76974C21D0207000931005 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F76974B21D0207000931005 /* AppDelegate.swift */; };
 		8F76975321D0207200931005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F76975221D0207200931005 /* Assets.xcassets */; };
 		8F76975621D0207200931005 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F76975421D0207200931005 /* LaunchScreen.storyboard */; };
@@ -19,6 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		773FB6E321DE8DFB00D969F4 /* ProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsView.swift; sourceTree = "<group>"; };
+		773FB6E621DE8E5C00D969F4 /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
+		77B792C421DFDA7B00B26CF6 /* AchievementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsView.swift; sourceTree = "<group>"; };
+		77B792C621DFDAC500B26CF6 /* AchievementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementCell.swift; sourceTree = "<group>"; };
 		8F76974821D0207000931005 /* Swifty-Companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swifty-Companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F76974B21D0207000931005 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F76975221D0207200931005 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -43,6 +51,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		773FB6E521DE8E3900D969F4 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8F95C9CA21D38D4200414BB2 /* SkillCell.swift */,
+				773FB6E621DE8E5C00D969F4 /* ProjectCell.swift */,
+				77B792C621DFDAC500B26CF6 /* AchievementCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		8F76973F21D0207000931005 = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +80,7 @@
 		8F76974A21D0207000931005 /* Swifty-Companion */ = {
 			isa = PBXGroup;
 			children = (
+				773FB6E521DE8E3900D969F4 /* Cells */,
 				8F95C9C521D388B500414BB2 /* Views */,
 				8F76974B21D0207000931005 /* AppDelegate.swift */,
 				8F76975221D0207200931005 /* Assets.xcassets */,
@@ -79,7 +98,8 @@
 			children = (
 				8F95C9C621D388D100414BB2 /* HeaderView.swift */,
 				8F95C9C821D38B4C00414BB2 /* SkillsView.swift */,
-				8F95C9CA21D38D4200414BB2 /* SkillCell.swift */,
+				773FB6E321DE8DFB00D969F4 /* ProjectsView.swift */,
+				77B792C421DFDA7B00B26CF6 /* AchievementsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -156,9 +176,13 @@
 			files = (
 				8F95C9C921D38B4C00414BB2 /* SkillsView.swift in Sources */,
 				8F95C9C721D388D100414BB2 /* HeaderView.swift in Sources */,
+				77B792C521DFDA7B00B26CF6 /* AchievementsView.swift in Sources */,
+				773FB6E421DE8DFB00D969F4 /* ProjectsView.swift in Sources */,
 				8F95C9CB21D38D4200414BB2 /* SkillCell.swift in Sources */,
+				773FB6E721DE8E5C00D969F4 /* ProjectCell.swift in Sources */,
 				8F95C9C421D388A100414BB2 /* ProfilController.swift in Sources */,
 				8F76975E21D14D7900931005 /* LoginController.swift in Sources */,
+				77B792C721DFDAC500B26CF6 /* AchievementCell.swift in Sources */,
 				8F76974C21D0207000931005 /* AppDelegate.swift in Sources */,
 				8F95C9BE21D2AD8300414BB2 /* Struct.swift in Sources */,
 			);

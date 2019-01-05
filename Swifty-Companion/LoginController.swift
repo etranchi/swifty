@@ -62,6 +62,7 @@ class LoginController: UIViewController , URLSessionDelegate {
     
     
     func setupView() {
+        login.delegate = self
         view.addSubview(login)
         view.addSubview(button)
         button.addTarget(self, action: #selector(goToProfile), for: .touchUpInside)
@@ -148,4 +149,11 @@ class LoginController: UIViewController , URLSessionDelegate {
     }
     */
 
+}
+
+extension LoginController : UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        goToProfile()
+        return true
+    }
 }
