@@ -53,7 +53,7 @@ class SkillsView: UIView {
 
 extension SkillsView : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return skills != nil ? skills!.count : 0
+        return skills!.count 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

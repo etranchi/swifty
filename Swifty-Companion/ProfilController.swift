@@ -24,11 +24,28 @@ class ProfilController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        AppDelegate.AppUtility.unlockOrientation()
+    }
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        DispatchQueue.main.async {
+            let v = self.view.subviews[0]
+            v.subviews.forEach({ (view) in
+                view.removeFromSuperview()
+            })
+            v.removeFromSuperview()
+            self.setupView()
+        }
+    }
+    
     func setupView() {
+        print("setup")
         let background = UIImage(named: "background42")
         view.backgroundColor = UIColor(patternImage: background!)
         let scroll = UIScrollView(frame: self.view.bounds)
-        scroll.contentSize = CGSize(width: self.view.frame.width, height: 1400)
+        scroll.contentSize = CGSize(width: self.view.bounds.width, height: 1400)
         let header = HeaderView()
         header.translatesAutoresizingMaskIntoConstraints = false
         header.user = user
@@ -41,7 +58,7 @@ class ProfilController: UIViewController {
         if user!.achievements != nil {
             achiev.achievements = user!.achievements
         }
-        if user!.projects_users != nil && user!.projects_users!.count > 0 {
+        if user!.projects_users != nil {
             let ret = user!.projects_users!.filter({ (proj) -> Bool in
                 if proj.cursus_ids != nil && proj.cursus_ids![0] == 1 {
                     return true
@@ -51,7 +68,7 @@ class ProfilController: UIViewController {
             projects.projects = ret
             
         }
-        if user!.cursus_users != nil && user!.cursus_users!.count > 0 {
+        if user!.cursus_users != nil {
             let _ = user!.cursus_users!.first(where: { (cursus) -> Bool in
                 if cursus.cursus_id == 1 {
                     skills.skills = cursus.skills
@@ -59,6 +76,9 @@ class ProfilController: UIViewController {
                 }
                 return false
             })
+            if skills.skills == nil {
+                skills.skills = []
+            }
         }
         
         scroll.addSubview(skills)

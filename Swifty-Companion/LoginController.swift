@@ -60,6 +60,10 @@ class LoginController: UIViewController , URLSessionDelegate {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        AppDelegate.AppUtility.lockOrientation(UIInterfaceOrientationMask.portrait, andRotateTo: UIInterfaceOrientation.portrait)
+    }
     
     func setupView() {
         login.delegate = self
