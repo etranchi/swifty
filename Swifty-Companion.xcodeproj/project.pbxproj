@@ -61,6 +61,15 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		77B792C821E0E2B200B26CF6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8F76975D21D14D7900931005 /* LoginController.swift */,
+				8F95C9C321D388A100414BB2 /* ProfilController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		8F76973F21D0207000931005 = {
 			isa = PBXGroup;
 			children = (
@@ -80,15 +89,14 @@
 		8F76974A21D0207000931005 /* Swifty-Companion */ = {
 			isa = PBXGroup;
 			children = (
+				77B792C821E0E2B200B26CF6 /* Controllers */,
 				773FB6E521DE8E3900D969F4 /* Cells */,
 				8F95C9C521D388B500414BB2 /* Views */,
 				8F76974B21D0207000931005 /* AppDelegate.swift */,
 				8F76975221D0207200931005 /* Assets.xcassets */,
 				8F76975421D0207200931005 /* LaunchScreen.storyboard */,
 				8F76975721D0207200931005 /* Info.plist */,
-				8F76975D21D14D7900931005 /* LoginController.swift */,
 				8F95C9BD21D2AD8300414BB2 /* Struct.swift */,
-				8F95C9C321D388A100414BB2 /* ProfilController.swift */,
 			);
 			path = "Swifty-Companion";
 			sourceTree = "<group>";

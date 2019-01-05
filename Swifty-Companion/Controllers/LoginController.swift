@@ -10,7 +10,7 @@ import UIKit
 
 public func makeAlert(_ msg : String) {
     // to check
-    if let cont = UIApplication.shared.keyWindow?.rootViewController?.children.last {
+    if let cont = UIApplication.shared.keyWindow?.rootViewController {
         let al = UIAlertController(title: "Error", message: msg, preferredStyle: .alert)
         al.addAction(UIAlertAction(title: "Ok", style: .default, handler: { me in
             al.dismiss(animated: true, completion: nil)
@@ -93,7 +93,9 @@ class LoginController: UIViewController , URLSessionDelegate {
         var req = URLRequest(url: url!)
         req.httpMethod = "POST"
         doIt(req: req, type: CRED.self, completion: { (ret) in
-            print(ret?.access_token)
+            if ret == nil {
+                return
+            }
             completion(ret)
         })
     }
@@ -117,6 +119,8 @@ class LoginController: UIViewController , URLSessionDelegate {
         getToken(completion: { (ret) in
             if ret != nil {
                 self.CREDENTIALS = ret
+            } else {
+                return
             }
         })
         view.backgroundColor = UIColor(patternImage: background!)
@@ -128,7 +132,7 @@ class LoginController: UIViewController , URLSessionDelegate {
     func doIt<T : Decodable>(req: URLRequest, type : T.Type, completion: @escaping((T?) -> ())) {
         URLSession(configuration: .default, delegate: self, delegateQueue: .main).dataTask(with: req) { (data, response, err) in
             if err != nil {
-                print("No response from the server, try again..")
+                makeAlert("No response from the server, try again..")
                 completion(nil)
             }
             if let d = data {
@@ -137,7 +141,7 @@ class LoginController: UIViewController , URLSessionDelegate {
                     completion(ret)
                 }
                 catch (let err){
-                    print(err.localizedDescription)
+                    makeAlert(err.localizedDescription)
                     completion(nil)
                 }
             }
