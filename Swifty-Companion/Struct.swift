@@ -21,7 +21,7 @@ struct User : Codable {
     let email : String
     let login : String
     let displayname : String
-    let phone : String
+    let phone : String?
     let wallet : Int
     let correction_point : Int
     let image_url : String

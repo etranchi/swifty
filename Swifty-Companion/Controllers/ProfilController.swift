@@ -60,7 +60,7 @@ class ProfilController: UIViewController {
         }
         if user!.projects_users != nil {
             let ret = user!.projects_users!.filter({ (proj) -> Bool in
-                if proj.cursus_ids != nil && proj.cursus_ids![0] == 1 {
+                if proj.cursus_ids != nil && proj.cursus_ids!.count > 0 && proj.cursus_ids![0] == 1 {
                     return true
                 }
                 return false
